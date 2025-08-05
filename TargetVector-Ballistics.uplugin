@@ -1,0 +1,31 @@
+{
+	"FileVersion": 1,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Flora",
+	"Description": "A kit of fully functional, customizable and optimized foliage assets with compatible licenses gathered from the internet, prepared and standardized with Wind support for Unreal Engine 5.",
+	"Category": "Assets",
+	"CreatedBy": "Uriel Ballinas, Voidware Prohibited",
+	"CreatedByURL": "https://github.com/Voidware-Prohibited",
+	"DocsURL": "https://github.com/Voidware-Prohibited/Flora",
+	"MarketplaceURL": "",
+	"SupportURL": "https://github.com/Voidware-Prohibited/Flora/discussions",
+	"EngineVersion": "5.5.0",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "Flora",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "Metasound",
+			"Enabled": true
+		}
+	]
+}
