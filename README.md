@@ -22,9 +22,9 @@ A GAS based, replicated, Projectile and Ballistics system _aiming_ to be suitabl
 _TargetVector-Ballistics is under heavy development, many features may not be finished or production-ready_.
 
 # Features
-- Environmental Parameters
-- Network Prediction with Rollback
-- Supports Destuction, Penetration and Ricochet with Physical Materials.
+- Realistic Environmental Parameters.
+- Network Prediction with Rollback.
+- Supports Destruction, Penetration and Ricochet with Physical Materials.
 - GAS Attribute based projectile.
 - Niagara Particle, Metasound, Decal and Realtime Vertex Painting support.
 
@@ -33,12 +33,22 @@ _TargetVector-Ballistics is under heavy development, many features may not be fi
 
 Clone or Download into a folder named _TargetVector-Ballistics_ in your existing projects Plugins folder.
 
+**Dependencies**
+
+- [Gameplay Abilities](https://dev.epicgames.com/documentation/en-us/unreal-engine/API/Plugins/GameplayAbilities/)
+
 # Usage
 
 ## Unreal Engine
 
+- Add the ASC, ASC Interface and Barrel Component to your Weapon class or Blueprint.
+
 
 # Settings
+
+## Environmental Parameters 
+
+## Ammunition Types
 
 
 # Contributions
