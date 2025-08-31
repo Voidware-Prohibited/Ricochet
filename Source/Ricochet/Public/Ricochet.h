@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
 
-class FTargetVectorBallisticsModule : public IModuleInterface
+class FRicochetModule : public IModuleInterface
 {
 public:
 

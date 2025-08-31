@@ -2,21 +2,21 @@
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "1.0",
-	"FriendlyName": "TargetVectorBallistics",
+	"FriendlyName": "Ricochet",
 	"Description": "A GAS based, replicated, Projectile and Ballistics system aiming to be suitable for large open world games and simulations.",
 	"Category": "Ballistics",
 	"CreatedBy": "Uriel Ballinas, VOIDWARE Prohibited",
 	"CreatedByURL": "https://github.com/Voidware-Prohibited",
-	"DocsURL": "https://github.com/Voidware-Prohibited/TargetVectorBallistics",
+	"DocsURL": "https://github.com/Voidware-Prohibited/Ricochet",
 	"MarketplaceURL": "",
-	"SupportURL": "https://github.com/Voidware-Prohibited/TargetVectorBallistics/discussions",
+	"SupportURL": "https://github.com/Voidware-Prohibited/Ricochet/discussions",
 	"CanContainContent": true,
 	"IsBetaVersion": true,
 	"IsExperimentalVersion": false,
 	"Installed": false,
 	"Modules": [
 		{
-			"Name": "TargetVectorBallistics",
+			"Name": "Ricochet",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
@@ -33,7 +33,6 @@
 		{
 			"Name": "Niagara",
 			"Enabled": true
-		},
-
+		}
 	]
 }

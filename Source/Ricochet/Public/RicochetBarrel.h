@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "Components/PrimitiveComponent.h"
-#include "TVBBarrel.generated.h"
+#include "RicochetBarrel.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class TARGETVECTORBALLISTICS_API UTVBBarrel : public UPrimitiveComponent
+class RICOCHET_API URicochetBarrel : public UPrimitiveComponent
 {
 	GENERATED_BODY()
 	

@@ -1,8 +1,0 @@
-// MIT
-
-
-#include "TVBBarrel.h"
-
-
-
-

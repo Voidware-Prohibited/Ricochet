@@ -1,15 +1,15 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "TargetVectorBallistics.h"
+#include "Ricochet.h"
 
-#define LOCTEXT_NAMESPACE "FTargetVectorBallisticsModule"
+#define LOCTEXT_NAMESPACE "FRicochetModule"
 
-void FTargetVectorBallisticsModule::StartupModule()
+void FRicochetModule::StartupModule()
 {
 	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
 }
 
-void FTargetVectorBallisticsModule::ShutdownModule()
+void FRicochetModule::ShutdownModule()
 {
 	// This function may be called during shutdown to clean up your module.  For modules that support dynamic reloading,
 	// we call this function before unloading the module.
@@ -17,4 +17,4 @@ void FTargetVectorBallisticsModule::ShutdownModule()
 
 #undef LOCTEXT_NAMESPACE
 	
-IMPLEMENT_MODULE(FTargetVectorBallisticsModule, TargetVectorBallistics)
+IMPLEMENT_MODULE(FRicochetModule, Ricochet)

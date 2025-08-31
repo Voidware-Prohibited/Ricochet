@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class TargetVectorBallistics : ModuleRules
+public class Ricochet : ModuleRules
 {
-	public TargetVectorBallistics(ReadOnlyTargetRules Target) : base(Target)
+	public Ricochet(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		
