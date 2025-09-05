@@ -25,7 +25,7 @@ public class Ricochet : ModuleRules
 		PublicDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"Core",
+				"Core", "GameplayAbilities"
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
