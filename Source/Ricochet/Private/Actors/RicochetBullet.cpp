@@ -1,4 +1,5 @@
-// MIT
+// Copyright (C) 2025 Uriel Ballinas, VOIDWARE Prohibited. All rights reserved.
+// This software is licensed under the MIT License (LICENSE.md).
 
 
 #include "Actors/RicochetBullet.h"
@@ -6,18 +7,30 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "AbilitySystemComponent.h"
 #include "GameplayEffectExtension.h"
+#include "Kismet/GameplayStatics.h"
 
 
-// Sets default values
+/**
+* @file RicochetBullet.cpp
+* @brief Base or Internal Magazine class, Health would be stored in Receiver
+*/
 ARicochetBullet::ARicochetBullet()
 {
  	PrimaryActorTick.bCanEverTick = true;
 	bReplicates = true;
 	SetReplicateMovement(false);
 
+	CollisionSphere = CreateDefaultSubobject<USphereComponent>(TEXT("CollisionSphere"));
+	CollisionSphere->SetupAttachment(RootComponent); // Attach to the root component
+	CollisionSphere->SetSphereRadius(50.0f); // Set the desired radius
+	CollisionSphere->SetCollisionProfileName(TEXT("OverlapAllDynamic")); // Or your desired collision profile
+
+	// Optional: Enable overlap events if needed
+	CollisionSphere->SetGenerateOverlapEvents(true);
+
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
 	AbilitySystemComponent->SetIsReplicated(true);
-	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
+	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
 
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement"));
 	ProjectileMovement->SetIsReplicated(false); // We'll manage replication
@@ -25,10 +38,37 @@ ARicochetBullet::ARicochetBullet()
 	ProjectileMovement->MaxSpeed = 0.f;
 }
 
+float ARicochetBullet::GetRoundWeight()
+{
+	return RoundWeight;
+}
+
 void ARicochetBullet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     DOREPLIFETIME(ARicochetBullet, InitialVelocity);
+}
+
+void ARicochetBullet::SetupSubclassCollisionIgnoring()
+{
+	if (!CollisionSphere) return;
+
+	TArray<AActor*> FoundActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ARicochetBullet::StaticClass(), FoundActors); // Replace AMySubclassActor with your actual subclass
+
+	for (AActor* SubclassActor : FoundActors)
+	{
+		if (SubclassActor && SubclassActor->GetOwner() == this) // Check if owned by this actor
+		{
+			CollisionSphere->IgnoreActorWhenMoving(SubclassActor, true);
+			// If the subclass actor also has a component that needs to ignore this owner,
+			// you might need to call IgnoreActorWhenMoving on that component as well.
+			// if (UPrimitiveComponent* SubclassComp = SubclassActor->FindComponentByClass<UPrimitiveComponent>())
+			// {
+			//     SubclassComp->IgnoreActorWhenMoving(this, true);
+			// }
+		}
+	}
 }
 
 UAbilitySystemComponent* ARicochetBullet::GetAbilitySystemComponent() const

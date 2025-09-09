@@ -1,13 +1,17 @@
-﻿// MIT
+﻿// Copyright (C) 2025 Uriel Ballinas, VOIDWARE Prohibited. All rights reserved.
+// This software is licensed under the MIT License (LICENSE.md).
 
 
-#include "Components/RicochetBarrel.h"
+#include "Components/RicochetMuzzleAttachment.h"
 #include "AbilitySystemComponent.h"
 #include "Net/UnrealNetwork.h"
 
 
-// Sets default values for this component's properties
-URicochetBarrel::URicochetBarrel()
+/**
+* @file RicochetMuzzleAttachment.cpp
+* @brief Core firearm component that defines Calibers, Fire Modes, Fire Rate, Base Recoil, and has Barrel and Magazine Attachments
+*/
+URicochetMuzzleAttachment::URicochetMuzzleAttachment()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
@@ -23,7 +27,7 @@ URicochetBarrel::URicochetBarrel()
 
 
 // Called when the game starts
-void URicochetBarrel::BeginPlay()
+void URicochetMuzzleAttachment::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -33,26 +37,30 @@ void URicochetBarrel::BeginPlay()
 
 
 // Called every frame
-void URicochetBarrel::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void URicochetMuzzleAttachment::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// ...
 }
 
-void URicochetBarrel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+void URicochetMuzzleAttachment::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	FDoRepLifetimeParams Parameters;
 	Parameters.bIsPushBased = true;
 	Parameters.Condition = COND_SkipOwner;
-	DOREPLIFETIME_WITH_PARAMS_FAST(ThisClass, CompatibleCalibers, Parameters)
-	DOREPLIFETIME_WITH_PARAMS_FAST(ThisClass, CompatibleMuzzleAttachments, Parameters)
+	DOREPLIFETIME_WITH_PARAMS_FAST(ThisClass, MuzzleAttachmentWeight, Parameters)
 }
 
+float URicochetMuzzleAttachment::GetMuzzleAttachmentWeight()
+{
+	return MuzzleAttachmentWeight;
+}
 
-UAbilitySystemComponent* URicochetBarrel::GetAbilitySystemComponent() const
+UAbilitySystemComponent* URicochetMuzzleAttachment::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent;
 }
+
