@@ -40,17 +40,17 @@ void URicochetReceiver::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
 
 float URicochetReceiver::GetReceiverWeight() const
 {
-	return ReceiverWeight;
+	return 0.0f;
 }
 
 float URicochetReceiver::GetTotalWeaponWeight()
 {
-	return ReceiverWeight;
+	return 0.0f;
 }
 
 float URicochetReceiver::GetTotalCalculatedRecoil()
 {
-	return ReceiverWeight;
+	return 0.0f;
 }
 
 UAbilitySystemComponent* URicochetReceiver::GetAbilitySystemComponent() const

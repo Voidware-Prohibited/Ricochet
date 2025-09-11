@@ -42,8 +42,6 @@ public:
 	UPROPERTY(Replicated, BlueprintReadWrite, EditAnywhere, Category = "Weapon")
 	FGameplayTagContainer CompatibleCalibers;
 
-	float BarrelWeight = 1.0;
-
 	UPROPERTY(Replicated, BlueprintReadWrite, EditAnywhere, Category = "Weapon")
 	FGameplayTagContainer CompatibleMuzzleAttachments;
 
@@ -53,18 +51,6 @@ public:
 	// Muzzle Attachment
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Velocity", meta = (ToolTip = "Amount of recoil applied to the barrel, only works with physics enabled"))
     TSoftClassPtr<URicochetMuzzleAttachment> MuzzleAttachment = nullptr;
-    
-    // Recoil
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Velocity", meta = (ToolTip = "Amount of recoil applied to the barrel, only works with physics enabled"))
-    float RecoilMultiplier = 1.0f;
-    
-    // Barrel
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Velocity", meta = (ToolTip = "Amount of recoil applied to the barrel, only works with physics enabled"))
-    float BarrelLength = 1.0f;
-    
-    // Accuracy
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Velocity", meta = (ToolTip = "Amount of recoil applied to the barrel, only works with physics enabled"))
-    float AccuracyMultiplier = 1.0f;
     	
 
 	float GetCalculatedRecoilModifier();

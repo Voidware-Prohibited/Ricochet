@@ -21,7 +21,7 @@ URicochetMuzzleAttachment::URicochetMuzzleAttachment()
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
 	AbilitySystemComponent->SetIsReplicated(true);
  
-	// Set Replication Mode to Mixed for NPCs.
+	// Set Replication Mode to Minimal for Actors spawned by Server.
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
 }
 
@@ -51,12 +51,12 @@ void URicochetMuzzleAttachment::GetLifetimeReplicatedProps(TArray<FLifetimePrope
 	FDoRepLifetimeParams Parameters;
 	Parameters.bIsPushBased = true;
 	Parameters.Condition = COND_SkipOwner;
-	DOREPLIFETIME_WITH_PARAMS_FAST(ThisClass, MuzzleAttachmentWeight, Parameters)
+	// DOREPLIFETIME_WITH_PARAMS_FAST(ThisClass, MuzzleAttachmentWeight, Parameters)
 }
 
 float URicochetMuzzleAttachment::GetMuzzleAttachmentWeight()
 {
-	return MuzzleAttachmentWeight;
+	return 0.0;
 }
 
 UAbilitySystemComponent* URicochetMuzzleAttachment::GetAbilitySystemComponent() const

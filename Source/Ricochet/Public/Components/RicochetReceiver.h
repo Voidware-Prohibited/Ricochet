@@ -55,27 +55,13 @@ public:
 	 * @brief Attributes / Weapon Properties
 	 * @todo Turn into Attributes and/or Structs and Data Assets
 	 */
-	
-
-	float ReceiverWeight = 1.0;
-
-	
-	
-
-	UPROPERTY(Replicated, BlueprintReadWrite, EditAnywhere, Category = "Weapon")
-	float Dirtiness = 0.0f;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon")
 	bool bUsesDetachableMagazine {true};
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon")
 	bool bUsesDetachableBarrel {true};
-
-	UPROPERTY(Replicated, BlueprintReadWrite, EditAnywhere, Category = "Weapon")
-	float FailureToExtractProbability = 0.0f;
-
-	UPROPERTY(Replicated, BlueprintReadWrite, EditAnywhere, Category = "Weapon")
-	float FailureToEjectProbability = 0.0f;
+	
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon")
 	TArray<TSubclassOf<URicochetBarrel>> Barrels;
@@ -93,37 +79,11 @@ public:
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Velocity", meta = (ToolTip = "Amount of recoil applied to the barrel, only works with physics enabled"))
 	TSoftObjectPtr<UStaticMeshComponent> StaticMeshComponent = nullptr;
-
-	// Velocity
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Flight")
-	float MuzzleVelocityMin = 100000.0;
-	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Flight")
-	float MuzzleVelocityMax = 100000.0;
-	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Velocity", meta = (ToolTip = "Bullet inherits barrel velocity, only works with physics enabled or with additional velocity set"))
-	float InheritVelocity = 1.0f;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon")
-	float MuzzleVelocityMultiplierMin = 1.0f;
-	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon")
-	float MuzzleVelocityMultiplierMax = 1.0f;
-	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Velocity", meta = (ToolTip = "Additional velocity, for use with InheritVelocity"))
-	FVector AdditionalVelocity = FVector(0,0,0);
 	
 	// Spread
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon", meta = (ToolTip = "Additional Spread, applied on top of bullet spread"))
 	float Spread = 0.0f;
 	
-	
-	// Fire Rate
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon")
-	float FireRateMin = 1.0f;
-	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon")
-	float FireRateMax = 1.0f;
 
 	// Cycle Ammo
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ammo")
@@ -149,18 +109,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon")
 	int BurstCount = 3;
 
-	// Gatling Fire
-	UPROPERTY(BlueprintReadWrite, Category = "Weapon")
-	float GatlingRPS = 0.0f;
-	
+	// Gatling Fire	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon", meta = (ToolTip = "Automatically spin up gatling when trigger is being held down"))
 	bool GatlingAutoSpool = true;
-	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon")
-	float GatlingSpoolUpTime = 1.0f;
-	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon")
-	float  GatlingSpoolDownTime = 1.0f;
 	
 	// Safe Launch
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Safe launch")
