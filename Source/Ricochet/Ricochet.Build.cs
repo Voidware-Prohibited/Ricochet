@@ -38,6 +38,7 @@ public class Ricochet : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
+				"NetworkPrediction"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

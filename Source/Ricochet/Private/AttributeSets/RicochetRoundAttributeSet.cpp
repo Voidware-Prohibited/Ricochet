@@ -27,6 +27,11 @@ void URicochetRoundAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProp
 	DOREPLIFETIME_WITH_PARAMS_FAST(URicochetRoundAttributeSet, Mass, Params);
 	DOREPLIFETIME_WITH_PARAMS_FAST(URicochetRoundAttributeSet, Diameter, Params);
 	DOREPLIFETIME_WITH_PARAMS_FAST(URicochetRoundAttributeSet, FormFactor, Params);
+	DOREPLIFETIME_WITH_PARAMS_FAST(URicochetRoundAttributeSet, EffectiveRange, Params);
+	DOREPLIFETIME_WITH_PARAMS_FAST(URicochetRoundAttributeSet, BaseEffectiveRangeMultiplier, Params);
+	DOREPLIFETIME_WITH_PARAMS_FAST(URicochetRoundAttributeSet, MaxEffectiveRangeMultiplier, Params);
+	DOREPLIFETIME_WITH_PARAMS_FAST(URicochetRoundAttributeSet, BaseImpactEnergyMultiplier, Params);
+	DOREPLIFETIME_WITH_PARAMS_FAST(URicochetRoundAttributeSet, MaxImpactEnergyMultiplier, Params);
 	DOREPLIFETIME_WITH_PARAMS_FAST(URicochetRoundAttributeSet, InitialVelocityX, Params);
 	DOREPLIFETIME_WITH_PARAMS_FAST(URicochetRoundAttributeSet, InitialVelocityY, Params);
 	DOREPLIFETIME_WITH_PARAMS_FAST(URicochetRoundAttributeSet, InitialVelocityZ, Params);
@@ -66,6 +71,31 @@ void URicochetRoundAttributeSet::OnRep_Diameter(const FGameplayAttributeData& Ol
 void URicochetRoundAttributeSet::OnRep_FormFactor(const FGameplayAttributeData& OldValue)
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(URicochetRoundAttributeSet, FormFactor, OldValue);
+}
+
+void URicochetRoundAttributeSet::OnRep_EffectiveRange(const FGameplayAttributeData& OldValue)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URicochetRoundAttributeSet, EffectiveRange, OldValue);
+}
+
+void URicochetRoundAttributeSet::OnRep_BaseEffectiveRangeMultiplier(const FGameplayAttributeData& OldValue)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URicochetRoundAttributeSet, BaseEffectiveRangeMultiplier, OldValue);
+}
+
+void URicochetRoundAttributeSet::OnRep_MaxEffectiveRangeMultiplier(const FGameplayAttributeData& OldValue)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URicochetRoundAttributeSet, MaxEffectiveRangeMultiplier, OldValue);
+}
+
+void URicochetRoundAttributeSet::OnRep_BaseImpactEnergyMultiplier(const FGameplayAttributeData& OldValue)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URicochetRoundAttributeSet, BaseImpactEnergyMultiplier, OldValue);
+}
+
+void URicochetRoundAttributeSet::OnRep_MaxImpactEnergyMultiplier(const FGameplayAttributeData& OldValue)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URicochetRoundAttributeSet, MaxImpactEnergyMultiplier, OldValue);
 }
 
 void URicochetRoundAttributeSet::OnRep_InitialVelocityX(const FGameplayAttributeData& OldValue)

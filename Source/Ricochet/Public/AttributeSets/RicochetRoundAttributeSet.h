@@ -45,6 +45,26 @@ public:
 	FGameplayAttributeData FormFactor;
 	ATTRIBUTE_ACCESSORS(URicochetRoundAttributeSet, FormFactor);
 
+	UPROPERTY(BlueprintReadOnly, Category = "Bullet", ReplicatedUsing = OnRep_EffectiveRange)
+	FGameplayAttributeData EffectiveRange;
+	ATTRIBUTE_ACCESSORS(URicochetRoundAttributeSet, EffectiveRange);
+
+	UPROPERTY(BlueprintReadOnly, Category = "Bullet", ReplicatedUsing = OnRep_BaseEffectiveRangeMultiplier)
+	FGameplayAttributeData BaseEffectiveRangeMultiplier;
+	ATTRIBUTE_ACCESSORS(URicochetRoundAttributeSet, BaseEffectiveRangeMultiplier);
+
+	UPROPERTY(BlueprintReadOnly, Category = "Bullet", ReplicatedUsing = OnRep_MaxEffectiveRangeMultiplier)
+	FGameplayAttributeData MaxEffectiveRangeMultiplier;
+	ATTRIBUTE_ACCESSORS(URicochetRoundAttributeSet, MaxEffectiveRangeMultiplier);
+
+	UPROPERTY(BlueprintReadOnly, Category = "Bullet", ReplicatedUsing = OnRep_BaseImpactEnergyMultiplier)
+	FGameplayAttributeData BaseImpactEnergyMultiplier;
+	ATTRIBUTE_ACCESSORS(URicochetRoundAttributeSet, BaseImpactEnergyMultiplier);
+
+	UPROPERTY(BlueprintReadOnly, Category = "Bullet", ReplicatedUsing = OnRep_MaxImpactEnergyMultiplier)
+	FGameplayAttributeData MaxImpactEnergyMultiplier;
+	ATTRIBUTE_ACCESSORS(URicochetRoundAttributeSet, MaxImpactEnergyMultiplier);
+
 	UPROPERTY(BlueprintReadOnly, Category = "Bullet", ReplicatedUsing = OnRep_InitialVelocityX)
 	FGameplayAttributeData InitialVelocityX;
 	ATTRIBUTE_ACCESSORS(URicochetRoundAttributeSet, InitialVelocityX);
@@ -139,6 +159,21 @@ protected:
 
 	UFUNCTION()
 	virtual void OnRep_FormFactor(const FGameplayAttributeData& OldValue);
+
+	UFUNCTION()
+	virtual void OnRep_EffectiveRange(const FGameplayAttributeData& OldValue);
+
+	UFUNCTION()
+	virtual void OnRep_BaseEffectiveRangeMultiplier(const FGameplayAttributeData& OldValue);
+
+	UFUNCTION()
+	virtual void OnRep_MaxEffectiveRangeMultiplier(const FGameplayAttributeData& OldValue);
+
+	UFUNCTION()
+	virtual void OnRep_BaseImpactEnergyMultiplier(const FGameplayAttributeData& OldValue);
+
+	UFUNCTION()
+	virtual void OnRep_MaxImpactEnergyMultiplier(const FGameplayAttributeData& OldValue);
 
 	UFUNCTION()
 	virtual void OnRep_InitialVelocityX(const FGameplayAttributeData& OldValue);

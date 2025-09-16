@@ -8,6 +8,7 @@
 #include "AbilitySystemComponent.h"
 #include "GameplayEffectExtension.h"
 #include "Kismet/GameplayStatics.h"
+#include "Physics/NetworkPhysicsComponent.h"
 
 
 /**
@@ -31,6 +32,12 @@ ARicochetBullet::ARicochetBullet()
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
+
+	NetworkPhysicsComponent = CreateDefaultSubobject<UNetworkPhysicsComponent>(TEXT("NetworkPhysicsComponent"));
+	NetworkPhysicsComponent->SetIsReplicated(true);
+	SetPhysicsReplicationMode(EPhysicsReplicationMode::Resimulation);
+	/* @todo Lower SetNetUpdateFrequency to optimize */
+	SetNetUpdateFrequency(60.f); 
 
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement"));
 	ProjectileMovement->SetIsReplicated(false); // We'll manage replication

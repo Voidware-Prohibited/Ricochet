@@ -11,7 +11,7 @@ struct RICOCHET_API FRicochetRoundData
 	GENERATED_BODY()
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Discharge", Meta = (AllowPrivateAccess))
-	FVector InitialVelocity;
+	FVector InitialVelocity {FVector(0,0,0)};
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Discharge|Shotgun", Meta = (AllowPrivateAccess)) 
 	bool Shotgun=false;

@@ -10,6 +10,7 @@
 #include "GameplayEffectTypes.h" 
 #include "Components/SphereComponent.h"
 #include "Data/RicochetEnums.h"
+#include "Physics/NetworkPhysicsComponent.h"
 #include "RicochetBullet.generated.h"
 
 class UGameplayEffect;
@@ -236,6 +237,9 @@ protected:
 
 	// Server-side function to apply rollback if necessary
 	void Server_CorrectClientPrediction(FVector ClientPredictedLocation);
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Network Physics")
+	UNetworkPhysicsComponent* NetworkPhysicsComponent;
 
 	// Properties
 
